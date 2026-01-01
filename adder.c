@@ -13,6 +13,21 @@ node_t * create_node(int n) {
     return node;
 }
 
+void append(node_t * head, int val) {
+    node_t * current = head;
+    if (current->next != NULL) {
+        current = current->next;
+    }
+    current->next = create_node(val);
+}
+
+void prepend(node_t ** head, int val) {
+    node_t * node = (node_t *)malloc(sizeof(node_t));
+    node->val = val;
+    node->next = *head;
+    *head = node;
+}
+
 node_t * read_to_list(void) {
     node_t * head = NULL;
     char c;
